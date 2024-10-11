@@ -1,0 +1,55 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(254, 254, 248);
+            text-align: center;
+            margin: 20px;
+        }
+        header {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        .locations, .score, .help {
+            font-size: 18px;
+            margin: 5px;
+        }
+        .instructions {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .help-btn {
+            color: blue;
+            cursor: pointer;
+        }
+        .game-field {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .game-field div {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid black;
+        }
+
+        .tree {
+            background-image: url('image1.webp');
+        }
+
+
+
+
+
+       
