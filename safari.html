@@ -89,3 +89,63 @@
    
 </body>
 </html>
+<script>
+  let ids = Array.from({ length: 36 }, (_, i) => `cell-${i}`);
+  let score = 0;
+  let locationsVisited = 0;
+  let lastLocation = 0;
+  let zebraLocations = [1, 8, 12, 22, 34];
+  let lionLocation = 14;
+  let gameOver = false;
+  function check(position) {
+      if (gameOver) return;
+      
+      let imageId = ids[position];
+      let imageElement = document.getElementById(imageId);
+      if (position === lionLocation) {
+          imageElement.style.backgroundImage = "url('image1.webp')"; 
+          gameOver = true;
+          score -= 2;
+          alert("Game Over! You encountered a lion!");
+      } else if (zebraLocations.includes(position)) {
+          imageElement.style.backgroundImage = "url('zebra')"; 
+          score += 4;
+      } else {
+          imageElement.style.backgroundImage = "url('elephant')"; 
+          score++;
+      }
+
+      locationsVisited++;
+      document.getElementById('locations').textContent = `Number of locations checked is ${locationsVisited}.`;
+      document.getElementById('score').textContent = `Score is ${score}.`;
+      lastLocation = position;
+  }
+
+  function help() {
+      let message = getHelpMessage();
+      document.getElementById('help').textContent = message;
+  }
+  function getHelpMessage() {
+      let neighbors = [
+          lastLocation - 1, lastLocation + 1,
+          lastLocation - 6, lastLocation + 6
+      ];
+
+      if (neighbors.some(n => zebraLocations.includes(n))) {
+          return "I see stripes";
+      }
+
+      let lionRow = Math.floor(lionLocation / 6);
+      let lionCol = lionLocation % 6;
+      let lastRow = Math.floor(lastLocation / 6);
+      let lastCol = lastLocation % 6;
+
+      if (Math.abs(lionRow - lastRow) <= 1 && Math.abs(lionCol - lastCol) <= 1) {
+          return "Rawr";
+      }
+
+      return "It's grey";
+  }
+</script>
+</body>
+</html>
