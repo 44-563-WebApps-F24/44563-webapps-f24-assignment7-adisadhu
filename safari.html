@@ -3,89 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Sadhu Goes on Safari</title>
-    
+    <title> Safari</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #ede6e6;
+            color: hsl(120, 100%, 0%);
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #f10fa9;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .instructions,
+        .locations,
+        .score,
+        .help-click,
+        .help-report {
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #3b3b3b;
+            color: #ecf0f1;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
+        }
+        .instructions:hover,
+        .locations:hover,
+        .score:hover,
+        .help-click:hover {
+            background-color: #34495e;
+            transform: scale(1.05);
+            color: #ecdbff;
+        }
+        .help-report {
+            display: none;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .box {
+            width: 300px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .gamebox {
+            padding: 5px;
+            border: 1px solid black;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
 </head>
 <body>
-     <link rel="stylesheet" href="stylesheet.css">
-    <header>Aditya Sadhu Goes on Safari</header>
+    <header>
+        <h1>ADITYA SADHU goes on safair</h1>
+    </header>
 
     <div class="container">
-        <div class="instructions">
-            Click on the locations to find rare animals, watch out for the lion!
+        <p>Click on the locations to find rare animals, watch out for the lion</p>
+
+        <div class="box" id="locations">
+            <p>Number of locations checked is zero.</p>
         </div>
-
-        <div class="locations" id="locations">
-            Number of locations checked is zero.
+        <div class="box" id="score">
+            <p>Score is zero.</p>
         </div>
-
-        <div class="score" id="score">
-            Score is zero.
-        </div>
-
-        <div class="help-btn" onclick="displayHelp()">Click for help</div>
-
-        <div class="help" id="help">
-            Help report
+        <div class="box" id="clickHelp" onclick="help()">
+            <p>Click for help.</p>
+        </div>        
+        <div class="box" id="help">
+            <p>Help report</p>
         </div>
     </div>
- 
-<div class="game-field">
- 
-  <div class="row">
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-  </div>
- 
-  <div class="row">
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-  </div>
-  <div class="row">
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-  </div>
-  <div class="row">
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-  </div>
-  <div class="row">
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-  </div>
-  <div class="row">
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-    <div class="location" style="background-image: url('plant.webp');"></div>
-  </div>
 
- 
-</div>
+    <div class="game-field">
+        <!-- Game Field with IDs and OnClick -->
+        <div class="row">
+            <div class="gamebox"><img id="img0" src="plant.webp" alt="plant" onclick="check(0)"></div>
+            <div class="gamebox"><img id="img1" src="plant.webp" alt="plant" onclick="check(1)"></div>
+            <div class="gamebox"><img id="img2" src="plant.webp" alt="plant" onclick="check(2)"></div>
+            <div class="gamebox"><img id="img3" src="plant.webp" alt="plant" onclick="check(3)"></div>
+            <div class="gamebox"><img id="img4" src="plant.webp" alt="plant" onclick="check(4)"></div>
+            <div class="gamebox"><img id="img5" src="plant.webp" alt="plant" onclick="check(5)"></div>
+        </div>
+        <!-- Repeat similar rows with unique IDs for each image (up to img35) -->
+        <!-- Example: -->
+        <div class="row">
+            <div class="gamebox"><img id="img6" src="plant.webp" alt="plant" onclick="check(6)"></div>
+            <div class="gamebox"><img id="img7" src="plant.webp" alt="plant" onclick="check(7)"></div>
+            <div class="gamebox"><img id="img8" src="plant.webp" alt="plant" onclick="check(8)"></div>
+            <div class="gamebox"><img id="img9" src="plant.webp" alt="plant" onclick="check(9)"></div>
+            <div class="gamebox"><img id="img10" src="plant.webp" alt="plant" onclick="check(10)"></div>
+            <div class="gamebox"><img id="img11" src="plant.webp" alt="plant" onclick="check(11)"></div>
+        </div>
+        <div class="row">
+            <div class="gamebox"><img id="img12" src="plant.webp" alt="plant" onclick="check(12)"></div>
+            <div class="gamebox"><img id="img13" src="plant.webp" alt="plant" onclick="check(13)"></div>
+            <div class="gamebox"><img id="img14" src="plant.webp" alt="plant" onclick="check(14)"></div>
+            <div class="gamebox"><img id="img15" src="plant.webp" alt="plant" onclick="check(15)"></div>
+            <div class="gamebox"><img id="img16" src="plant.webp" alt="plant" onclick="check(16)"></div>
+            <div class="gamebox"><img id="img17" src="plant.webp" alt="plant" onclick="check(17)"></div>
+        </div>
+        <div class="row">
+            <div class="gamebox"><img id="img18" src="plant.webp" alt="plant" onclick="check(18)"></div>
+            <div class="gamebox"><img id="img19" src="plant.webp" alt="plant" onclick="check(19)"></div>
+            <div class="gamebox"><img id="img20" src="plant.webp" alt="plant" onclick="check(20)"></div>
+            <div class="gamebox"><img id="img21" src="plant.webp" alt="plant" onclick="check(21)"></div>
+            <div class="gamebox"><img id="img22" src="plant.webp" alt="plant" onclick="check(22)"></div>
+            <div class="gamebox"><img id="img23" src="plant.webp" alt="plant" onclick="check(23)"></div>
+        </div>
+        <div class="row">
+            <div class="gamebox"><img id="img24" src="plant.webp" alt="plant" onclick="check(24)"></div>
+            <div class="gamebox"><img id="img25" src="plant.webp" alt="plant" onclick="check(25)"></div>
+            <div class="gamebox"><img id="img26" src="plant.webp" alt="plant" onclick="check(26)"></div>
+            <div class="gamebox"><img id="img27" src="plant.webp" alt="plant" onclick="check(27)"></div>
+            <div class="gamebox"><img id="img28" src="plant.webp" alt="plant" onclick="check(28)"></div>
+            <div class="gamebox"><img id="img29" src="plant.webp" alt="plant" onclick="check(29)"></div>
+        </div>
+        <div class="row">
+            <div class="gamebox"><img id="img30" src="plant.webp" alt="plant" onclick="check(30)"></div>
+            <div class="gamebox"><img id="img31" src="plant.webp" alt="plant" onclick="check(31)"></div>
+            <div class="gamebox"><img id="img32" src="plant.webp" alt="plant" onclick="check(32)"></div>
+            <div class="gamebox"><img id="img33" src="plant.webp" alt="plant" onclick="check(33)"></div>
+            <div class="gamebox"><img id="img34" src="plant.webp" alt="plant" onclick="check(34)"></div>
+            <div class="gamebox"><img id="img35" src="plant.webp" alt="plant" onclick="check(35)"></div>
+        </div>
+    </div>
 
+    <script>
+        const ids = [...Array(36).keys()].map(i => `img${i}`);  // Image IDs (img0 to img35)
+        let score = 0;
+        let locationsVisited = 0;
+        let lastLocation = 0;
+        const zebraLocations = [1, 8, 12, 22, 34];
+        const lionLocation = 14;
+        let gameOver = false;
 
-   
+        // Check function to handle clicks
+        function check(position) {
+            if (gameOver) return;  // If game is over, do nothing
+
+            const imageId = ids[position];  // Get image ID from array
+            const imageElement = document.getElementById(imageId);  // Get the image element
+
+            if (position === lionLocation) {
+                imageElement.src = 'Lion.jpg';  // Change to lion image
+                score -= 2;  // Subtract 2 from score
+                gameOver = true;  // End the game
+                alert('Game Over! You found the lion!');
+            } else if (zebraLocations.includes(position)) {
+                imageElement.src = 'Zebra.jpg';  // Change to zebra image
+                score += 4;  // Add 4 to score
+            } else {
+                imageElement.src = 'elephant.jpg';  // Change to elephant image
+                score += 1;  // Add 1 to score
+            }
+
+            locationsVisited += 1;
+            lastLocation = position;  // Update last checked location
+
+            // Update the score and locations checked
+            document.getElementById('score').innerHTML = `<p>Score is ${score}.</p>`;
+            document.getElementById('locations').innerHTML = `<p>Number of locations checked is ${locationsVisited}.</p>`;
+        }
+
+        // Help function to give hints based on proximity to zebras and the lion
+        function help() {
+            const col = lastLocation % 6;
+            const row = Math.floor(lastLocation / 6);
+
+            const lionRow = Math.floor(lionLocation / 6);
+            const lionCol = lionLocation % 6;
+
+            // Check 4 closest locations (allow wrap-around)
+            const closestLocations = [
+                (lastLocation + 35) % 36,  // Subtract 1 with wrap-around
+                (lastLocation + 1) % 36,   // Add 1 with wrap-around
+                (lastLocation + 30) % 36,  // Subtract 6 with wrap-around
+                (lastLocation + 6) % 36    // Add 6 with wrap-around
+            ];
+
+            // Check if any of the 4 closest locations have zebras
+            if (closestLocations.some(loc => zebraLocations.includes(loc))) {
+                document.getElementById('help').innerHTML = `<p>I see stripes.</p>`;
+                return;
+            }
+
+            // Check if last location is next to the lion (row and col differ by at most 1)
+            if (Math.abs(lionRow - row) <= 1 && Math.abs(lionCol - col) <= 1) {
+                document.getElementById('help').innerHTML = `<p>Rawr</p>`;
+                return;
+            }
+
+            // If no zebras nearby and not next to the lion, return "It's grey"
+            document.getElementById('help').innerHTML = `<p>It's grey.</p>`;
+        }
+    </script>
 </body>
-</html
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Precision</title>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <h3>Aditya Sadhu Speed Check</h3>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      text-align: center;
+    }
+
+    .timer {
+      margin: 20px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #75bbed;
+      font-size: 18px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="countdown" class="timer">Count: </div>
+  <div id="target" class="timer">Your time: </div>
+
+  <button id="startButton">Start Timer</button>
+  <button id="stopButton">Stop Timer</button><br>
+
+  <script>
+    let stopTime; // Variable to store stop time
+    let countdownStarted = false; // Flag to check if the countdown has started
+
+    function recordTime() {
+      stopTime = Date.now(); // Record the stop time
+      console.log(`Stop Time: ${stopTime}`); // Log to console
+    }
+
+    document.getElementById('stopButton').onclick = recordTime; // Set onclick for stop button
+
+    function startTime() {
+      if (countdownStarted) return; // Prevent starting a new countdown if one is already active
+
+      countdownStarted = true; // Set countdown flag
+      document.getElementById('target').innerText = 'Your time: '; // Reset target time
+
+      const countdownValue = Math.floor(Math.random() * 9) + 2; // Random value between 2 and 10
+
+      // Countdown loop
+      for (let i = 0; i < countdownValue; i++) {
+        setTimeout(() => {
+          document.getElementById('countdown').innerText = `Count: ${countdownValue - i}`; // Update countdown
+        }, i * 1000); // Update every second
+      }
+
+      // Final check after countdown
+      setTimeout(() => {
+        if (stopTime === undefined) {
+          document.getElementById('target').innerText = "Too Slow";
+        } else {
+          const elapsedTime = Date.now() - stopTime; // Calculate elapsed time
+          document.getElementById('target').innerText = `Time was ${elapsedTime} ms`;
+        }
+        countdownStarted = false; // Reset flag after completion
+      }, countdownValue * 1000); // Check after countdownValue seconds
+    }
+
+    document.getElementById('startButton').onclick = startTime; // Set onclick for start button
+  </script>
+ 
+</body>
+
+</html>
