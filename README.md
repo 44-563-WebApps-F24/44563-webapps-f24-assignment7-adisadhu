@@ -3,3 +3,9 @@
 Assignment 7 on DOM
 hosted at
 [safari]( https://44-563-webapps-f24.github.io/44563-webapps-f24-assignment7-adisadhu/safari.html)
+
+hosted at
+[precision](https://44-563-webapps-f24.github.io/44563-webapps-f24-assignment7-adisadhu/precision.html)
+
+hosted at 
+[divlist](https://44-563-webapps-f24.github.io/44563-webapps-f24-assignment7-adisadhu/divlist.html)
